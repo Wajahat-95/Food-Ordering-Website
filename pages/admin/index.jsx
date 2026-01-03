@@ -10,10 +10,11 @@ const Index = ({orders, products}) => {
 
     const handleDelete = async(id) => {
         try {
-            const res = await axios.delete("http://localhost:3000/api/products/" + id)
+            const res = await axios.delete("/api/products/" + id)
             setProductList(productList.filter((product) => product._id !== id));
         } catch (error) {
-            console.log(error);
+            console.error(error);
+            alert("Error deleting product");
         }
     }
 
@@ -23,13 +24,14 @@ const Index = ({orders, products}) => {
         const currentStatus = item.status;
 
         try {
-            const res = await axios.put("http://localhost:3000/api/orders/" + id, {status: currentStatus + 1 });
+            const res = await axios.put("/api/orders/" + id, {status: currentStatus + 1 });
             setOrderList([
                 res.data,
                 ...orderList.filter((order) => order._id !== id)
             ]);
         } catch (error) {
-            console.log(error)
+            console.error(error)
+            alert("Error updating order status");
         }
     }
   return (
@@ -118,8 +120,8 @@ export const  getServerSideProps = async (ctx) => {
             }
         }
     }
-    const productRes = await axios.get("http://localhost:3000/api/products");
-    const orderRes = await axios.get("http://localhost:3000/api/orders");
+    const productRes = await axios.get(`${process.env.API_URL || 'http://localhost:3000'}/api/products`);
+    const orderRes = await axios.get(`${process.env.API_URL || 'http://localhost:3000'}/api/orders`);
 
     return{
         props: {

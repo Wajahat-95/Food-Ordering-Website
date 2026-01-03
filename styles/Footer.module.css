@@ -1,7 +1,9 @@
 .container {
-  height: calc(100vh - 100px);
+  height: auto;
+  min-height: 400px;
   background-color: #222;
   display: flex;
+  padding-bottom: 20px;
 }
 
 .item {

@@ -1,10 +1,10 @@
 import axios from "axios";
 import Head from "next/head";
 import { useState } from "react";
-import Add from "./components/Add";
-import AddButton from "./components/AddButton";
-import Featured from "./components/Featured";
-import ProductList from "./components/ProductList";
+import Add from "../components/Add";
+import AddButton from "../components/AddButton";
+import Featured from "../components/Featured";
+import ProductList from "../components/ProductList";
 
 export default function Home({ productList, admin }) {
   const [close, setClose] = useState(true);
@@ -29,7 +29,7 @@ export const getServerSideProps = async (ctx) => {
   if(myCookie.token === process.env.TOKEN){
     admin = true;
   }
-  const res = await axios.get("http://localhost:3000/api/products");
+  const res = await axios.get(`${process.env.API_URL || 'http://localhost:3000'}/api/products`);
   return{
     props:{
       productList: res.data,
