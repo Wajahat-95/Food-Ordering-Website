@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../../styles/Featured.module.css";
+import styles from "../styles/Featured.module.css";
 import Image from "next/image";
 
 const Featured = () => {
@@ -18,7 +18,6 @@ const Featured = () => {
         setIndex(index !== 2 ? index+1 : 0)
     }
 }
-  console.log(index);
   return (
     <div
       className={styles.container}

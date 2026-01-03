@@ -1,0 +1,11 @@
+
+> fries-startup@0.1.0 dev
+> next dev
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+info  - Loaded env from /app/.env
+event - compiled client and server successfully in 3.1s (304 modules)
+wait  - compiling / (client and server)...
+event - compiled client and server successfully in 547 ms (385 modules)
+wait  - compiling /api/products (client and server)...
+event - compiled successfully in 71 ms (110 modules)

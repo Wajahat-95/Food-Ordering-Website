@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../../styles/Add.module.css"
+import styles from "../styles/Add.module.css"
 import axios from "axios";
 import { useState } from 'react';
 import { useRouter } from 'next/router';
@@ -38,10 +38,11 @@ const Add = ({ setClose }) => {
                 extraOptions,
                 img:url,
             };
-            await axios.post("http://localhost:3000/api/products", newProduct);
+      await axios.post("/api/products", newProduct);
             setClose(true);
         } catch (err) {
-            console.log(err);
+      console.error(err);
+      alert("Error creating product");
         }
     }
   return (

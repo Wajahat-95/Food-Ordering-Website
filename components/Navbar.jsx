@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../../styles/Navbar.module.css";
+import styles from "../styles/Navbar.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
@@ -20,12 +20,12 @@ const Navbar = () => {
       </div>
       <div className={styles.item}>
         <ul className={styles.list}>
-          <Link href="/">
-          <li className={styles.listItem}>Home</li>
+          <Link href="/" passHref>
+            <li className={styles.listItem}>Home</li>
           </Link>
           <li className={styles.listItem}>Products</li>
           <li className={styles.listItem}>Menu</li>
-          <Image src="/img/logoimg.png" alt="" width="150px" height="69px" />
+          <Image src="/img/logoimg.png" alt="Logo" width="150px" height="69px" />
           <li className={styles.listItem}>Events</li>
           <li className={styles.listItem}>Blog</li>
           <li className={styles.listItem}>Contact</li>
